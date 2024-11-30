@@ -4,6 +4,14 @@ const path = require('path');
 
 const app = express();
 
+const cors = require('cors');
+
+// Allow requests from your Netlify domain
+app.use(cors({
+  origin: 'https://sparklyll.netlify.app', // Replace with your Netlify URL
+}));
+
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
